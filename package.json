@@ -4,7 +4,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,8 +17,5 @@
     "express": "^4.21.1",
     "mysql2": "^3.11.4",
     "sequelize": "^6.37.5"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
   }
 }
