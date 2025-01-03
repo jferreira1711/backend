@@ -17,7 +17,7 @@ const app = express()
 
 
 app.use(cors({
-    origin: process.env.URLFRONTEND || 'http://localhost:8000',
+    origin: process.env.URLFRONTEND || 'http://localhost:8000/',
     credentials: true
 }))
 app.use(express.json())
