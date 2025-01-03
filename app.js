@@ -18,8 +18,8 @@ const port = process.env.PORT || 8001;
 
 // Configuración de CORS
 const allowedOrigins = [
-    process.env.URLFRONTEND, 
-    'http://localhost:3000'
+    'https://frontend-chp4.vercel.app',  // Dominio configurado en las variables de entorno
+    'http://localhost:3000', // Para desarrollo local
 ];
 
 app.use(cors({
@@ -30,7 +30,7 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true,
+    credentials: true, // Permitir credenciales
 }));
 app.use(express.json())
 app.use('/usuarios',UsuariosRouter)
