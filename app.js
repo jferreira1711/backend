@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'; 
+
 
 //importamos la conexión a la DB
 import db from './database/db.js'
@@ -16,7 +16,10 @@ import PrescriptionsRouter from './routes/PrescriptionRouter.js'
 const app = express()
 
 
-app.use(cors())
+app.use(cors({
+    origin: process.env.URLFRONTEND || 'http://localhost:8000',
+    credentials: true
+}))
 app.use(express.json())
 app.use('/usuarios',UsuariosRouter)
 app.use('/patients',PatientsRouter)
@@ -36,8 +39,7 @@ app.get('/', (req, res)=>{
     res.send('HOLA MUNDO')
 })
 
-
-const PORT = 54378 || 8000; // Usa el puerto del archivo .env o el 8000 por defecto
-app.listen(PORT, () => {
-    console.log(`Server UP running in http://localhost:${PORT}/`);
-});
+app.listen(8000, ()=>{
+    console.log('Server UP running in http://localhost:8000/')
+    
+})
