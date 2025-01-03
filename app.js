@@ -16,10 +16,22 @@ import PrescriptionsRouter from './routes/PrescriptionRouter.js'
 const app = express()
 const port = process.env.PORT || 8001;
 
+// Configuración de CORS
+const allowedOrigins = [
+    process.env.URLFRONTEND, 
+    'http://localhost:3000'
+];
+
 app.use(cors({
-    origin: process.env.URLFRONTEND || 'http://localhost:8001/',
-    credentials: true
-}))
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+}));
 app.use(express.json())
 app.use('/usuarios',UsuariosRouter)
 app.use('/patients',PatientsRouter)
