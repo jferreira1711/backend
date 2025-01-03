@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-
+import dotenv from 'dotenv'; 
 
 //importamos la conexión a la DB
 import db from './database/db.js'
@@ -36,7 +36,8 @@ app.get('/', (req, res)=>{
     res.send('HOLA MUNDO')
 })
 
-app.listen(8000, ()=>{
-    console.log('Server UP running in http://localhost:8000/')
-    
-})
+
+const PORT = 54378 || 8000; // Usa el puerto del archivo .env o el 8000 por defecto
+app.listen(PORT, () => {
+    console.log(`Server UP running in http://localhost:${PORT}/`);
+});
