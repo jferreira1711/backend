@@ -48,7 +48,7 @@ try {
 }
 
 app.get('/', (req, res)=>{
-    res.send('HOLA MUNDO')
+    res.send('HOLA MUNDO 2.0')
 })
 
 app.listen(port, ()=>{
