@@ -14,10 +14,10 @@ import AppointmentsRouter from './routes/AppointmentsRouter.js'
 import PrescriptionsRouter from './routes/PrescriptionRouter.js'
 
 const app = express()
-
+const port = process.env.PORT || 8001;
 
 app.use(cors({
-    origin: process.env.URLFRONTEND || 'http://localhost:8000/',
+    origin: process.env.URLFRONTEND || 'http://localhost:8001/',
     credentials: true
 }))
 app.use(express.json())
@@ -39,7 +39,7 @@ app.get('/', (req, res)=>{
     res.send('HOLA MUNDO')
 })
 
-app.listen(8000, ()=>{
-    console.log('Server UP running in http://localhost:8000/')
+app.listen(port, ()=>{
+    console.log('Server UP running in http://localhost:8001/')
     
 })
